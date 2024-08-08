@@ -1,67 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Ahorrada</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="flex justify-between pt-5 bg-green-300">
-        <div class=" flex flex-row gap-2.5 m-2">
-            <img src="imagenes/wallet_25330.ico" alt="billetera con dinero" class="h-10 w-10 object-contain">
-            <h1 class=" flex items-center text-3xl font-mono p	">AhorrADAs</h1>
-        </div>
-        <ul class="flex flex-row  mr-2">
-            <li class="flex items-center">
-                <img src="imagenes/artboard_123065.ico" alt="una l con una flecha hacia arriba" class="h-6 w-6 object-contain">
-                <a href="#" class="p-2" >Balance</a>
-            </li>
-            <li class="flex items-center">
-                <img src="imagenes/tag-icon_34341.ico" alt="una etiqueta de ropa" class="h-6 w-6 object-contain"  >
-                <a href="#" class="p-2" >Categoria</a>
-            </li>
-            <li class="flex items-center">
-                <img src="imagenes/5_icon-icons.com_68890.ico" alt="un circulo partiodo en varias porciones con diferente color cada porcion" class="h-6 w-6 object-contain">
-                <a href="#" class="p-2">Reporte</a>
-            </li>
-        </ul>
-            
+      <div class="flex flex-row gap-2.5 m-2">
+        <img
+          src="imagenes/wallet_25330.ico"
+          alt="billetera con dinero"
+          class="h-10 w-10 object-contain"
+        />
+        <h1 class="flex items-center text-3xl font-mono p">AhorrADAs</h1>
+      </div>
+      <ul class="flex flex-row mr-2">
+        <li class="flex items-center">
+          <img
+            src="imagenes/artboard_123065.ico"
+            alt="una l con una flecha hacia arriba"
+            class="h-6 w-6 object-contain"
+          />
+          <a href="#" class="p-2">Balance</a>
+        </li>
+        <li class="flex items-center">
+          <img
+            src="imagenes/tag-icon_34341.ico"
+            alt="una etiqueta de ropa"
+            class="h-6 w-6 object-contain"
+          />
+          <a href="#" class="p-2">Categoria</a>
+        </li>
+        <li class="flex items-center">
+          <img
+            src="imagenes/5_icon-icons.com_68890.ico"
+            alt="un circulo partiodo en varias porciones con diferente color cada porcion"
+            class="h-6 w-6 object-contain"
+          />
+          <a href="#" class="p-2">Reporte</a>
+        </li>
+      </ul>
     </nav>
-    <section>
+    <main class="flex flex-row mx-[40px] my-[20px]">
+      <section class="basis-1/3">
+        <div
+          id="seccionBalance"
+          class="flex-col w-96 border-solid border-[1px] border-black p-[6px] m-[20px]"
+        >
+          <h2 class="text-[1.5em]">Balance</h2>
 
-        <div id="seccionBalance" class="flex-col  w-96 border-solid border-[1px] border-black p-[6px] m-[20px]">
-            <h2 class="text-[1.5em]">Balance</h2>
+          <div id="balance" class="flex justify-between mt-[20px]">
+            <div id="balanceGanancia">
+              <h3>Ganancia</h3>
+            </div>
+            <div id="balanceGananciaFinal">
+              <p>+ $ 0</p>
+            </div>
+          </div>
 
-            <div id="balance" class="flex justify-between mt-[20px]" >
-                
-                <div id="balanceGanancia">
-                        <h3>Ganancia</h3>
-                </div>
-                <div id="balanceGananciaFinal">
-                        <p>+ $ 0</p>
-                    </div>
-                </div>
-
-                <div id="gananciaGastos" class="flex justify-between">
-                    <div id="gananciaGastosGastos"><h3>Gastos</h3></div>
-                    <div id="gananciaGastosGastosFinal"><p>- $ 0</p></div>
-                </div>
-                <div id="gananciaTotal" class="flex justify-between">
-                    <div id="gananciaTotalTotal"><h3>Total</h3></div>
-                    <div id="gananciaTotalFinal"><p>$ 0</p></div>
-                </div>
-                 
+          <div id="gananciaGastos" class="flex justify-between">
+            <div id="gananciaGastosGastos"><h3>Gastos</h3></div>
+            <div id="gananciaGastosGastosFinal"><p>- $ 0</p></div>
+          </div>
+          <div id="gananciaTotal" class="flex justify-between">
+            <div id="gananciaTotalTotal"><h3>Total</h3></div>
+            <div id="gananciaTotalFinal"><p>$ 0</p></div>
+          </div>
         </div>
-        <div id="filtros"  class="flex-col  w-96 border-solid border-[1px] border-black p-[6px] m-[20px]">
-                <h2 class="text-[1.5em]">Filtros</h2>
+        <div
+          id="filtros"
+          class="flex-col w-96 border-solid border-[1px] border-black p-[6px] m-[20px]"
+        >
+          <h2 class="text-[1.5em]">Filtros</h2>
         </div>
-               
-        
-
-        <div class="flex h-[500px] w-96 border-solid border-[1px] border-black">
-            <h3>Operaciones</h3>
+      </section>
+      <section class="basis-2/3">
+        <div
+          id="operaciones"
+          class="flex-col border-solid border-[0.5px] border-red-100 shadow-md shadow-red-200 rounded-md p-[10px] m-[20px]"
+        >
+          <div class="flex justify-between">
+            <h2 class="font-bold text-xl">Operaciones</h2>
+            <button
+              class="font-normal text-sm bg-emerald-500 px-3 py-2 rounded-md text-slate-50"
+            >
+              + Nueva operacion
+            </button>
+          </div>
+          <picture class="flex justify-center m-8"
+            ><img src="./imagenes/operaciones-img.svg" alt=""
+          /></picture>
+          <p class="text-center font-normal text-base">Sin resultados</p>
+          <p class="text-center font-light text-base">
+            Cambiar los filtros o agregar operaciones
+          </p>
         </div>
-    </section>
-</body>
+      </section>
+      <divid></divid>
+    </main>
+  </body>
 </html>
