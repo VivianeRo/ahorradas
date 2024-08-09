@@ -43,62 +43,201 @@
         </li>
       </ul>
     </nav>
-    <main class="flex flex-row mx-[40px] my-[20px]">
-      <section class="basis-1/3">
-        <div
-          id="seccionBalance"
-          class="flex-col w-96 border-solid border-[1px] border-black p-[6px] m-[20px]"
-        >
-          <h2 class="text-[1.5em]">Balance</h2>
+    <main class="mx-[40px] my-[20px]">
+      <!-- Contenedor temporal para poder ver balance y filtros a la izquierda y operaciones a la derecha  -->
 
-          <div id="balance" class="flex justify-between mt-[20px]">
-            <div id="balanceGanancia">
-              <h3>Ganancia</h3>
-            </div>
-            <div id="balanceGananciaFinal">
-              <p>+ $ 0</p>
-            </div>
-          </div>
+      <section class="flex w-full m-10">
+        <section class="basis-1/3">
+          <div
+            id="seccionBalance"
+            class="flex-col w-96 border-solid border-[1px] border-black p-[6px] m-[20px]"
+          >
+            <h2 class="text-[1.5em]">Balance</h2>
 
-          <div id="gananciaGastos" class="flex justify-between">
-            <div id="gananciaGastosGastos"><h3>Gastos</h3></div>
-            <div id="gananciaGastosGastosFinal"><p>- $ 0</p></div>
+            <div id="balance" class="flex justify-between mt-[20px]">
+              <div id="balanceGanancia">
+                <h3>Ganancia</h3>
+              </div>
+              <div id="balanceGananciaFinal">
+                <p>+ $ 0</p>
+              </div>
+            </div>
+
+            <div id="gananciaGastos" class="flex justify-between">
+              <div id="gananciaGastosGastos"><h3>Gastos</h3></div>
+              <div id="gananciaGastosGastosFinal"><p>- $ 0</p></div>
+            </div>
+            <div id="gananciaTotal" class="flex justify-between">
+              <div id="gananciaTotalTotal"><h3>Total</h3></div>
+              <div id="gananciaTotalFinal"><p>$ 0</p></div>
+            </div>
           </div>
-          <div id="gananciaTotal" class="flex justify-between">
-            <div id="gananciaTotalTotal"><h3>Total</h3></div>
-            <div id="gananciaTotalFinal"><p>$ 0</p></div>
+          <div
+            id="filtros"
+            class="flex-col w-96 border-solid border-[1px] border-black p-[6px] m-[20px]"
+          >
+            <h2 class="text-[1.5em]">Filtros</h2>
           </div>
-        </div>
-        <div
-          id="filtros"
-          class="flex-col w-96 border-solid border-[1px] border-black p-[6px] m-[20px]"
-        >
-          <h2 class="text-[1.5em]">Filtros</h2>
-        </div>
+        </section>
+        <section class="basis-2/3">
+          <div
+            id="operaciones"
+            class="flex-col border-solid border-[0.5px] border-red-100 shadow-lg shadow-red-100 rounded-md p-[30px] m-[20px]"
+          >
+            <div class="flex justify-between">
+              <h2 class="font-bold text-2xl">Operaciones</h2>
+              <button
+                class="font-normal text-sm bg-emerald-500 px-3 py-2 rounded-md text-slate-50 hover:bg-emerald-600 hover:transition-all"
+              >
+                + Nueva operación
+              </button>
+            </div>
+            <picture class="flex justify-center m-8"
+              ><img src="./imagenes/operaciones-img.svg" alt=""
+            /></picture>
+            <p class="text-center font-normal text-base">Sin resultados</p>
+            <p class="text-center font-light text-base">
+              Cambiar los filtros o agregar operaciones
+            </p>
+          </div>
+        </section>
       </section>
-      <section class="basis-2/3">
-        <div
-          id="operaciones"
-          class="flex-col border-solid border-[0.5px] border-red-100 shadow-md shadow-red-200 rounded-md p-[10px] m-[20px]"
-        >
-          <div class="flex justify-between">
-            <h2 class="font-bold text-xl">Operaciones</h2>
-            <button
-              class="font-normal text-sm bg-emerald-500 px-3 py-2 rounded-md text-slate-50"
-            >
-              + Nueva operacion
-            </button>
+
+      <!-- Contenedor temporal para poder ver las secciones que no son del inicio una abajo de la otra -->
+
+      <section class="basis-3/3 block flex-col">
+        <section>
+          <div
+            id="nueva-operacion"
+            class="size-3/5 flex-col border-[0.5px] border-red-100 shadow-lg shadow-red-100 rounded-md p-[20px] m-auto"
+          >
+            <h2 class="font-bold text-2xl mb-[6px]">Nueva Operación</h2>
+            <form action="">
+              <label
+                for="descripcion"
+                class="block my-[3px] font-light text-base"
+              >
+                Descripción
+                <input
+                  type="text"
+                  class="block border-[0.5px] w-full rounded shadow-sm my-2 p-1 focus:outline-none focus:border-emerald-500-0.5 focus:shadow-lg focus:ring-1 focus:ring-emerald-500"
+                />
+              </label>
+              <label for="monto" class="block my-[3px] font-light text-base">
+                Monto
+                <input
+                  type="number"
+                  class="block border-[0.5px] w-full rounded shadow-sm my-2 p-1 focus:outline-none focus:border-emerald-500-0.5 focus:shadow-lg focus:ring-1 focus:ring-emerald-500"
+                />
+              </label>
+              <label for="tipo" class="block my-[3px] font-light text-base">
+                Tipo
+                <select
+                  name="tipo"
+                  id="tipo"
+                  class="block border-[0.5px] w-full rounded shadow-sm my-2 p-1 focus:outline-none focus:border-emerald-500-0.5 focus:shadow-lg focus:ring-1 focus:ring-emerald-500"
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="gasto">Gasto</option>
+                  <option value="ganancia">Ganancia</option>
+                </select>
+              </label>
+              <label
+                for="categoria"
+                class="block my-[3px] font-light text-base"
+              >
+                Categoría
+                <select
+                  name="categoria"
+                  id="categoria"
+                  class="block border-[0.5px] w-full rounded shadow-sm my-2 p-1 focus:outline-none focus:border-emerald-500-0.5 focus:shadow-lg focus:ring-1 focus:ring-emerald-500"
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="comida">Comida</option>
+                  <option value="servicios">Servicios</option>
+                  <option value="salidas">Salidas</option>
+                  <option value="educacion">Educación</option>
+                  <option value="transporte">Transporte</option>
+                  <option value="trabajo">Trabajo</option>
+                </select>
+              </label>
+              <label for="fecha" class="block my-[3px] font-light text-base"
+                >Fecha
+                <input
+                  type="date"
+                  class="block border-[0.5px] w-full rounded shadow-sm my-2 p-1 focus:outline-none focus:border-emerald-500-0.5 focus:shadow-lg focus:ring-1 focus:ring-emerald-500"
+                />
+              </label>
+            </form>
+            <div class="flex justify-end gap-x-3 mt-3">
+              <button
+                class="font-normal text-sm bg-gray-200 px-3 py-2 rounded-md text-slate-950 hover:bg-gray-300 hover:transition-all"
+              >
+                Cancelar
+              </button>
+              <button
+                class="font-normal text-sm bg-emerald-500 px-3 py-2 rounded-md text-slate-50 hover:bg-emerald-600 hover:transition-all"
+              >
+                Agregar
+              </button>
+            </div>
           </div>
-          <picture class="flex justify-center m-8"
-            ><img src="./imagenes/operaciones-img.svg" alt=""
-          /></picture>
-          <p class="text-center font-normal text-base">Sin resultados</p>
-          <p class="text-center font-light text-base">
-            Cambiar los filtros o agregar operaciones
-          </p>
-        </div>
-      </section>
-      <divid></divid>
+        </section>
+        <section id="lista-operaciones" class="basis-2/3">
+          <div
+            id="lista-operaciones"
+            class="basis-2/3 flex-col border-solid border-[0.5px] border-red-100 shadow-lg shadow-red-100 rounded-md p-[30px] m-[20px]"
+          >
+            <div class="flex justify-between">
+              <h2 class="font-bold text-2xl">Operaciones</h2>
+              <button
+                class="font-normal text-sm bg-emerald-500 px-3 py-2 rounded-md text-slate-50 hover:bg-emerald-600 hover:transition-all"
+              >
+                + Nueva operación
+              </button>
+            </div>
+
+            <table class="my-4 w-full">
+              <tr class="my-3 text-left">
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+              </tr>
+
+              <tr class="my-3">
+                <td>Prueba</td>
+                <td
+                  class="bg-emerald-100 py-1 px-2 text-emerald-700 rounded inline"
+                >
+                  Servicios
+                </td>
+                <td>8/8/2024</td>
+                <td class="text-red-600 font-semibold">-$2</td>
+                <td class="gap-2">
+                  <button class="text-cyan-600">Editar</button>
+                  <button class="text-cyan-600">Eliminar</button>
+                </td>
+              </tr>
+              <tr class="my-3">
+                <td>Prueba 2</td>
+                <td
+                  class="bg-emerald-100 py-1 px-2 text-emerald-700 rounded inline"
+                >
+                  Servicios
+                </td>
+                <td>9/8/2024</td>
+                <td class="text-green-600 font-semibold">+$60</td>
+                <td class="gap-2">
+                  <button class="text-cyan-600">Editar</button>
+                  <button class="text-cyan-600">Eliminar</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        
     </main>
   </body>
 </html>
